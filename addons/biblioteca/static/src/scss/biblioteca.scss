@@ -1,0 +1,23 @@
+// Variables: se definen una vez y se reusan. Esto es SCSS, no CSS puro.
+$color-titulo: #714b67;   // violeta Odoo
+$color-tarjeta: #f7f5f2;
+
+.biblioteca-publica {
+    h1 {
+        color: $color-titulo;
+        border-bottom: 2px solid $color-titulo;
+        padding-bottom: 10px;
+    }
+
+    .libro-item {
+        background: $color-tarjeta;
+        padding: 12px 16px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        list-style: none;
+
+        strong {
+            color: $color-titulo;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="pagina_libros" name="Pagina publica de libros">
+        <t t-call="web.layout">
+            <!-- web.layout no carga estilos solo: le pedimos el CSS de web.assets_frontend,
+                 que es donde el manifiesto declaro nuestro SCSS -->
+            <t t-set="head">
+                <t t-call-assets="web.assets_frontend" t-js="false"/>
+            </t>
+            <!-- la clase biblioteca-publica es la que engancha con el SCSS -->
+            <div class="container biblioteca-publica" style="margin-top: 40px;">
+                <h1>Nuestra Biblioteca</h1>
+                <p>Libros disponibles para prestamo:</p>
+                <ul>
+                    <t t-foreach="libros" t-as="libro">
+                        <li class="libro-item">
+                            <strong><t t-out="libro.name"/></strong>
+                            <span t-if="libro.autor"> - <t t-out="libro.autor"/></span>
+                        </li>
+                    </t>
+                </ul>
+                <p t-if="not libros">No hay libros disponibles por ahora.</p>
+            </div>
+        </t>
+    </template>
+</odoo>
